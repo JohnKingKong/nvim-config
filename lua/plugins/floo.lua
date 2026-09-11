@@ -1,6 +1,5 @@
 return {
-  dir = vim.fn.expand("~/floo-network.nvim"),
-  name = "floo-network.nvim",
+  "JohnKingKong/floo-network.nvim",
   event = "VeryLazy",
   opts = {
     keys = {
