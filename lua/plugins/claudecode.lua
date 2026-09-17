@@ -1,6 +1,6 @@
 --- ~/.config/nvim/lua/plugins/claudecode.lua
 return {
-  "coder/claudecode.nvim",
+  "JohnKingKong/claudecode.nvim", -- fork: openDiff/close_all_diff_tabs not registered, see commit c892c1d
   event = "VeryLazy",
   opts = {
     auto_start = true,
