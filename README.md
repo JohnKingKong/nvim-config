@@ -6,13 +6,14 @@ My personal Neovim setup, built on [LazyVim](https://github.com/LazyVim/LazyVim)
 
 ## Highlights
 
-- **Claude Code, reviewed before it writes.** [`claudecode.nvim`](https://github.com/coder/claudecode.nvim) integrates Claude Code as a terminal session you can send buffer/selection context to. [`claude-reviewer.nvim`](https://github.com/johnkingkong/claude-reviewer.nvim) — my own plugin — intercepts every file edit Claude proposes and forces a native Neovim diff review before it touches disk.
+- **Claude Code, reviewed before it writes.** [`claudecode.nvim`](https://github.com/JohnKingKong/claudecode.nvim) (a fork — `openDiff` is deliberately not registered, so the IDE connection is used purely for sending buffer/selection context, never for reviewing edits) integrates Claude Code as a terminal session. [`claude-reviewer.nvim`](https://github.com/johnkingkong/claude-reviewer.nvim) — my own plugin — intercepts every file edit Claude proposes and forces a native Neovim diff review before it touches disk, regardless of what the IDE connection is doing.
 - **Package installs, checked before they land.** [`impostor-pkg.nvim`](https://github.com/johnkingkong/impostor-pkg.nvim) — my own plugin — scans `package.json` changes and pending npm/pnpm/yarn installs for risky dependencies, and can block `:Lazy`/package-manager installs above a configurable risk threshold.
 - **GitHub, without leaving the editor.** [`octo.nvim`](https://github.com/pwntester/octo.nvim) for browsing and reviewing pull requests, [`diffview.nvim`](https://github.com/sindrets/diffview.nvim) for a proper side-by-side diff view.
 - **Search scoped to a file glob.** [`globular-telescope.nvim`](https://github.com/johnkingkong/globular-telescope.nvim) — my own Telescope extension — adds a dropdown of filetype presets (or a typed inline glob) on top of `live_grep`, WebStorm-"Find in Files"-style.
-- **Testing and formatting.** [`scan-o-tron-3000.nvim`](https://github.com/johnkingkong/scan-o-tron-3000.nvim) — my own plugin — runs the nearest test, current file, or whole project from the editor (or from a neo-tree node) with a toggleable output panel; [`conform.nvim`](https://github.com/stevearc/conform.nvim) runs Biome on save for TS/JS/JSON.
-- **One tab, one workspace.** [`floo-network.nvim`](https://github.com/johnkingkong/floo-network.nvim) — my own plugin — turns each tab into an independent workspace scoped to its own directory, with a dropdown switcher, rename, and pin (a pinned workspace survives closing other tabs and survives quitting Neovim entirely).
+- **Testing and formatting.** [`scan-o-tron-3000.nvim`](https://github.com/johnkingkong/scan-o-tron-3000.nvim) — my own plugin — runs the nearest test, current file, or whole project from the editor (or from a neo-tree node) with a toggleable output panel; [`conform.nvim`](https://github.com/stevearc/conform.nvim) runs Biome on save for TS/JS/JSON, asynchronously so a slow format never freezes the editor.
+- **One tab, one fireplace.** [`floo-network.nvim`](https://github.com/johnkingkong/floo-network.nvim) — my own plugin — turns each tab into an independent fireplace scoped to its own directory, with a dropdown switcher, rename, and pin (a pinned fireplace survives closing other tabs and survives quitting Neovim entirely).
 - **AI completion.** [`supermaven-nvim`](https://github.com/supermaven-inc/supermaven-nvim).
+- **A patched dashboard.** [`snacks.nvim`](https://github.com/JohnKingKong/snacks.nvim) (a fork — fixes the startup dashboard throwing `Invalid window id` when its window is closed/replaced and something else resizes afterward).
 - **A few UI tweaks:** [gruvbox](https://github.com/ellisonleao/gruvbox.nvim) colorscheme, transparent background, scroll animation disabled.
 
 ---
@@ -32,16 +33,17 @@ Requires Neovim >= 0.9. Lazy.nvim bootstraps and installs every plugin on first 
 
 | Plugin | Purpose |
 |---|---|
-| [claudecode.nvim](https://github.com/coder/claudecode.nvim) | Claude Code terminal integration |
+| [claudecode.nvim](https://github.com/JohnKingKong/claudecode.nvim) | Claude Code terminal integration (fork: `openDiff` not registered — context-sending only, never diff review) |
 | [claude-reviewer.nvim](https://github.com/johnkingkong/claude-reviewer.nvim) | Forces a diff review before Claude writes files |
 | [impostor-pkg.nvim](https://github.com/johnkingkong/impostor-pkg.nvim) | Scans/blocks risky npm package installs before they land |
 | [globular-telescope.nvim](https://github.com/johnkingkong/globular-telescope.nvim) | Glob-scoped `live_grep` with a preset dropdown |
 | [octo.nvim](https://github.com/pwntester/octo.nvim) | GitHub PRs/issues inside Neovim |
 | [diffview.nvim](https://github.com/sindrets/diffview.nvim) | Side-by-side git diff view |
 | [scan-o-tron-3000.nvim](https://github.com/johnkingkong/scan-o-tron-3000.nvim) | Run tests from the editor or neo-tree |
-| [floo-network.nvim](https://github.com/johnkingkong/floo-network.nvim) | Workspace tabs: dropdown switcher, rename, pin, pinned-only session persistence |
+| [floo-network.nvim](https://github.com/johnkingkong/floo-network.nvim) | Fireplace tabs: dropdown switcher, rename, pin, pinned-only session persistence |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Format-on-save (Biome for TS/JS/JSON) |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI completion |
+| [snacks.nvim](https://github.com/JohnKingKong/snacks.nvim) | LazyVim UI toolkit (fork: fixes dashboard crash on window resize after close) |
 | [gruvbox.nvim](https://github.com/ellisonleao/gruvbox.nvim) | Colorscheme |
 
 Plus the [LazyVim](https://github.com/LazyVim/LazyVim) extras: `neo-tree`, `lang.json`, `lang.markdown`, `lang.typescript` (+Biome).
@@ -66,13 +68,13 @@ Beyond [LazyVim's defaults](https://www.lazyvim.org/keymaps):
 | `<leader>tp` | n | Run project's tests (scan-o-tron-3000) |
 | `<leader>tr` | n | Run tests at the neo-tree node under cursor (scan-o-tron-3000) |
 | `<leader>ts` | n | Toggle test output panel (scan-o-tron-3000) |
-| `<leader><tab>w` | n | New workspace (floo-network.nvim) |
-| `<leader><tab>n` | n | Rename current workspace (floo-network.nvim) |
-| `<leader><tab>p` | n | Toggle pin on current workspace (floo-network.nvim) |
-| `<leader><tab>s` | n | Open/close workspace dropdown (floo-network.nvim) |
-| `<leader><tab>d` | n | Close current workspace (floo-network.nvim) |
-| `<leader><tab>o` | n | Close other workspaces (floo-network.nvim) |
-| `<leader>bb` | n | Switch buffer within current workspace (floo-network.nvim) |
+| `<leader><tab>w` | n | New fireplace (floo-network.nvim) |
+| `<leader><tab>n` | n | Rename current fireplace (floo-network.nvim) |
+| `<leader><tab>p` | n | Toggle pin on current fireplace (floo-network.nvim) |
+| `<leader><tab>s` | n | Open/close fireplace dropdown (floo-network.nvim) |
+| `<leader><tab>d` | n | Close current fireplace (floo-network.nvim) |
+| `<leader><tab>o` | n | Close other fireplaces, confirming first for any pinned ones (floo-network.nvim) |
+| `<leader>bb` | n | Switch buffer within current fireplace (floo-network.nvim) |
 
 ---
 
