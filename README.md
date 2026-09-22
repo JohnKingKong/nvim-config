@@ -62,7 +62,7 @@ Beyond [LazyVim's defaults](https://www.lazyvim.org/keymaps):
 |---|---|---|
 | `<leader>as` | n, v | Send buffer/selection context to Claude Code |
 | `<leader>ca` | n | Approve a pending Claude Code file edit (only bound inside an active review tab) |
-| `<leader>cd` | n | Diff current unsaved buffer against disk (`DiffOrig`) — deny a pending Claude Code edit inside an active review tab — or toggle the ours\|result\|theirs diff view on a conflicted file (albus-conflictius.nvim) |
+| `<leader>cd` | n | Diff current unsaved buffer against disk (`DiffOrig`) — or deny a pending Claude Code edit, when inside an active review tab |
 | `<leader>f/` | n | Live grep, scoped to a chosen file glob |
 | `<leader>go` | n | Open Octo (GitHub PRs/issues) |
 | `<leader>gp` | n | List pull requests |
@@ -79,11 +79,13 @@ Beyond [LazyVim's defaults](https://www.lazyvim.org/keymaps):
 | `<leader><tab>d` | n | Close current fireplace (floo-network.nvim) |
 | `<leader><tab>o` | n | Close other fireplaces, confirming first for any pinned ones (floo-network.nvim) |
 | `<leader>bb` | n | Switch buffer within current fireplace (floo-network.nvim) |
-| `<leader>cb` | n | Open the button manager (clickaholic.nvim) — or accept both sides of a hunk, ours then theirs, on a conflicted file (albus-conflictius.nvim) |
-| `<leader>co` | n | Accept ours for the hunk under the cursor on a conflicted file (albus-conflictius.nvim) |
-| `<leader>ct` | n | Accept theirs for the hunk under the cursor on a conflicted file (albus-conflictius.nvim) |
-| `<leader>cn` / `<leader>cp` | n | Jump to next/previous conflict on a conflicted file (albus-conflictius.nvim) |
-| `<leader>cw` | n | Run the magic wand on the current buffer, if it's a conflicted file (albus-conflictius.nvim) |
+| `<leader>cb` | n | Open the button manager (clickaholic.nvim) |
+| `<leader>mo` | n | Accept ours for the hunk under the cursor on a conflicted file (albus-conflictius.nvim) |
+| `<leader>mt` | n | Accept theirs for the hunk under the cursor on a conflicted file (albus-conflictius.nvim) |
+| `<leader>mb` | n | Accept both, ours then theirs, on a conflicted file (albus-conflictius.nvim) |
+| `<leader>mn` / `<leader>mp` | n | Jump to next/previous conflict on a conflicted file (albus-conflictius.nvim) |
+| `<leader>mw` | n | Run the magic wand on the current buffer, if it's a conflicted file (albus-conflictius.nvim) |
+| `<leader>md` | n | Toggle the ours\|result\|theirs diff view on a conflicted file (albus-conflictius.nvim) |
 
 ---
 
