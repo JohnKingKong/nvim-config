@@ -12,6 +12,8 @@ My personal Neovim setup, built on [LazyVim](https://github.com/LazyVim/LazyVim)
 - **Search scoped to a file glob.** [`globular-telescope.nvim`](https://github.com/johnkingkong/globular-telescope.nvim) — my own Telescope extension — adds a dropdown of filetype presets (or a typed inline glob) on top of `live_grep`, WebStorm-"Find in Files"-style.
 - **Testing and formatting.** [`scan-o-tron-3000.nvim`](https://github.com/johnkingkong/scan-o-tron-3000.nvim) — my own plugin — runs the nearest test, current file, or whole project from the editor (or from a neo-tree node) with a toggleable output panel; [`conform.nvim`](https://github.com/stevearc/conform.nvim) runs Biome on save for TS/JS/JSON, asynchronously so a slow format never freezes the editor.
 - **One tab, one fireplace.** [`floo-network.nvim`](https://github.com/johnkingkong/floo-network.nvim) — my own plugin — turns each tab into an independent fireplace scoped to its own directory, with a dropdown switcher, rename, and pin (a pinned fireplace survives closing other tabs and survives quitting Neovim entirely).
+- **A one-click button bar.** [`clickaholic.nvim`](https://github.com/johnkingkong/clickaholic.nvim) — my own plugin — a configurable, clickable button bar (run a Vim command, a shell command, or Lua) rendered as a single instance in the bufferline, not duplicated per window.
+- **Merge conflicts, mostly auto-resolved.** [`albus-conflictius.nvim`](https://github.com/johnkingkong/albus-conflictius.nvim) — my own plugin — watches the repo for conflicts and pops up a dashboard the moment one appears; its "magic wand" auto-resolves hunks where only one side actually changed, leaving a guided accept-ours/accept-theirs view for the rest.
 - **AI completion.** [`supermaven-nvim`](https://github.com/supermaven-inc/supermaven-nvim).
 - **A patched dashboard.** [`snacks.nvim`](https://github.com/JohnKingKong/snacks.nvim) (a fork — fixes the startup dashboard throwing `Invalid window id` when its window is closed/replaced and something else resizes afterward).
 - **A few UI tweaks:** [gruvbox](https://github.com/ellisonleao/gruvbox.nvim) colorscheme, transparent background, scroll animation disabled.
@@ -41,6 +43,8 @@ Requires Neovim >= 0.9. Lazy.nvim bootstraps and installs every plugin on first 
 | [diffview.nvim](https://github.com/sindrets/diffview.nvim) | Side-by-side git diff view |
 | [scan-o-tron-3000.nvim](https://github.com/johnkingkong/scan-o-tron-3000.nvim) | Run tests from the editor or neo-tree |
 | [floo-network.nvim](https://github.com/johnkingkong/floo-network.nvim) | Fireplace tabs: dropdown switcher, rename, pin, pinned-only session persistence |
+| [clickaholic.nvim](https://github.com/johnkingkong/clickaholic.nvim) | Configurable, clickable button bar (single instance, rendered in the bufferline) |
+| [albus-conflictius.nvim](https://github.com/johnkingkong/albus-conflictius.nvim) | Merge-conflict dashboard with an auto-resolve "magic wand" |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Format-on-save (Biome for TS/JS/JSON) |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI completion |
 | [snacks.nvim](https://github.com/JohnKingKong/snacks.nvim) | LazyVim UI toolkit (fork: fixes dashboard crash on window resize after close) |
@@ -58,7 +62,7 @@ Beyond [LazyVim's defaults](https://www.lazyvim.org/keymaps):
 |---|---|---|
 | `<leader>as` | n, v | Send buffer/selection context to Claude Code |
 | `<leader>ca` | n | Approve a pending Claude Code file edit (only bound inside an active review tab) |
-| `<leader>cd` | n | Diff current unsaved buffer against disk (`DiffOrig`) — or deny a pending Claude Code edit, when inside an active review tab |
+| `<leader>cd` | n | Diff current unsaved buffer against disk (`DiffOrig`) — deny a pending Claude Code edit inside an active review tab — or toggle the ours\|result\|theirs diff view on a conflicted file (albus-conflictius.nvim) |
 | `<leader>f/` | n | Live grep, scoped to a chosen file glob |
 | `<leader>go` | n | Open Octo (GitHub PRs/issues) |
 | `<leader>gp` | n | List pull requests |
@@ -75,6 +79,11 @@ Beyond [LazyVim's defaults](https://www.lazyvim.org/keymaps):
 | `<leader><tab>d` | n | Close current fireplace (floo-network.nvim) |
 | `<leader><tab>o` | n | Close other fireplaces, confirming first for any pinned ones (floo-network.nvim) |
 | `<leader>bb` | n | Switch buffer within current fireplace (floo-network.nvim) |
+| `<leader>cb` | n | Open the button manager (clickaholic.nvim) — or accept both sides of a hunk, ours then theirs, on a conflicted file (albus-conflictius.nvim) |
+| `<leader>co` | n | Accept ours for the hunk under the cursor on a conflicted file (albus-conflictius.nvim) |
+| `<leader>ct` | n | Accept theirs for the hunk under the cursor on a conflicted file (albus-conflictius.nvim) |
+| `<leader>cn` / `<leader>cp` | n | Jump to next/previous conflict on a conflicted file (albus-conflictius.nvim) |
+| `<leader>cw` | n | Run the magic wand on the current buffer, if it's a conflicted file (albus-conflictius.nvim) |
 
 ---
 
