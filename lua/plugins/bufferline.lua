@@ -7,6 +7,9 @@ return {
         return require("floo").buf_belongs_to_current_workspace(buf_number)
       end,
       custom_areas = {
+        left = function()
+          return require("floo.tabline").custom_area()
+        end,
         right = function()
           return require("clickaholic.tabline").custom_area()
         end,
