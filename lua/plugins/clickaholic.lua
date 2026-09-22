@@ -12,7 +12,7 @@ return {
         label = "Console",
         icon = "🚀",
         action_type = "cmd",
-        action = "vsplit | terminal cd /Users/johnkingkong/Evolia/evolia-mono/apps/console && pnpm run start",
+        action = "botright split | terminal cd /Users/johnkingkong/Evolia/evolia-mono/apps/console && pnpm run start",
       },
     },
   },
