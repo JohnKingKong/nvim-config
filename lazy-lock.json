@@ -11,7 +11,7 @@
   "conform.nvim": { "branch": "master", "commit": "016802de402556da54c36bd7359b441266b01cdd" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "flash.nvim": { "branch": "main", "commit": "5f0f270fdc7c5b0c21d903ee85b9cb06f2ac636a" },
-  "floo-network.nvim": { "branch": "main", "commit": "5d7e9889b131c6df6e6842807ceaab12d806ddb1" },
+  "floo-network.nvim": { "branch": "main", "commit": "1e9e8fa93e4ed01fb1b75f060e596f6c51b4dc3d" },
   "friendly-snippets": { "branch": "main", "commit": "b4d01b0fdf3c9a549961c2f9ffe8dc09be166219" },
   "gitsigns.nvim": { "branch": "main", "commit": "070a5d7b985546cc57e1fc61e5bc507fecac6045" },
   "globular-telescope.nvim": { "branch": "main", "commit": "708e79a4bdb086924129c2890384d79d18350915" },
