@@ -14,6 +14,7 @@ My personal Neovim setup, built on [LazyVim](https://github.com/LazyVim/LazyVim)
 - **One tab, one fireplace.** [`floo-network.nvim`](https://github.com/johnkingkong/floo-network.nvim) — my own plugin — turns each tab into an independent fireplace scoped to its own directory, with a dropdown switcher, rename, and pin (a pinned fireplace survives closing other tabs, survives quitting Neovim entirely, and confirms before `:q`/`:qa` would close it). The current fireplace's name shows in the bufferline itself.
 - **A one-click button bar.** [`clickaholic.nvim`](https://github.com/johnkingkong/clickaholic.nvim) — my own plugin — a configurable, clickable button bar (run a Vim command, a shell command, or Lua) rendered as a single instance in the bufferline, not duplicated per window.
 - **Merge conflicts, mostly auto-resolved.** [`albus-conflictius.nvim`](https://github.com/johnkingkong/albus-conflictius.nvim) — my own plugin — watches the repo for conflicts and pops up a dashboard the moment one appears; its "magic wand" auto-resolves hunks where only one side actually changed, leaving a guided accept-ours/accept-theirs view for the rest.
+- **PR review comments, without the ceremony.** [`the-grapevine.nvim`](https://github.com/JohnKingKong/the-grapevine.nvim) — my own plugin — a read-only, grouped-by-file view of the current branch's open PR's review comments (resolved and unresolved), jump straight to the code a comment refers to.
 - **AI completion.** [`supermaven-nvim`](https://github.com/supermaven-inc/supermaven-nvim).
 - **A patched dashboard.** [`snacks.nvim`](https://github.com/JohnKingKong/snacks.nvim) (a fork — fixes the startup dashboard throwing `Invalid window id` when its window is closed/replaced and something else resizes afterward).
 - **A few UI tweaks:** [gruvbox](https://github.com/ellisonleao/gruvbox.nvim) colorscheme, transparent background, scroll animation disabled.
@@ -45,6 +46,7 @@ Requires Neovim >= 0.9. Lazy.nvim bootstraps and installs every plugin on first 
 | [floo-network.nvim](https://github.com/johnkingkong/floo-network.nvim) | Fireplace tabs: dropdown switcher, rename, pin, pinned-only session persistence |
 | [clickaholic.nvim](https://github.com/johnkingkong/clickaholic.nvim) | Configurable, clickable button bar (single instance, rendered in the bufferline) |
 | [albus-conflictius.nvim](https://github.com/johnkingkong/albus-conflictius.nvim) | Merge-conflict dashboard with an auto-resolve "magic wand" |
+| [the-grapevine.nvim](https://github.com/JohnKingKong/the-grapevine.nvim) | Read-only, grouped-by-file PR review comment viewer |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Format-on-save (Biome for TS/JS/JSON) |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI completion |
 | [snacks.nvim](https://github.com/JohnKingKong/snacks.nvim) | LazyVim UI toolkit (fork: fixes dashboard crash on window resize after close) |
@@ -86,6 +88,7 @@ Beyond [LazyVim's defaults](https://www.lazyvim.org/keymaps):
 | `<leader>mn` / `<leader>mp` | n | Jump to next/previous conflict on a conflicted file (albus-conflictius.nvim) |
 | `<leader>mw` | n | Run the magic wand on the current buffer, if it's a conflicted file (albus-conflictius.nvim) |
 | `<leader>md` | n | Toggle the ours\|result\|theirs diff view on a conflicted file (albus-conflictius.nvim) |
+| `<leader>gv` | n | Show the current branch's PR review comments (the-grapevine.nvim) |
 
 ---
 
