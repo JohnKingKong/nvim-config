@@ -25,9 +25,15 @@ vim.api.nvim_create_autocmd("TabEnter", {
   end,
 })
 
--- Auto-enter terminal mode when focusing a terminal buffer
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "term://*",
+-- Auto-enter terminal mode when a terminal is first opened. TermOpen (not
+-- BufEnter) fires once, at creation -- BufEnter re-fires on every later
+-- revisit too (buffer cycling, bufferline clicks, <C-6>, window nav), so it
+-- was force-entering terminal-insert mode any time focus merely passed
+-- through an existing terminal buffer, not just when one was freshly
+-- opened. Once there, <leader> (space) -- along with nearly every other
+-- key -- goes straight to the shell/TUI underneath instead of Neovim,
+-- which looks exactly like "the leader key stopped working."
+vim.api.nvim_create_autocmd("TermOpen", {
   callback = function()
     vim.cmd("startinsert")
   end,

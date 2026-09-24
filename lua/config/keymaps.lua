@@ -33,3 +33,11 @@ end, { desc = "Diff current unsaved buffer with saved file" })
 
 -- Keep your shortcut!
 vim.keymap.set("n", "<leader>cd", "<cmd>DiffOrig<cr>", { desc = "Diff Unsaved Changes" })
+
+-- Reliable way out of terminal mode. A single <Esc> is left alone -- it's
+-- needed by whatever's actually running in the terminal (e.g. vim-in-a-
+-- terminal, a REPL) -- but terminal mode otherwise swallows <leader>
+-- (space) and nearly every other key, sending it straight to the
+-- shell/TUI instead of Neovim, which looks exactly like "the leader key
+-- stopped working." Double-tap Escape to actually leave.
+vim.keymap.set("t", "<Esc><Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
