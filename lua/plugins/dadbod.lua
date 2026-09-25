@@ -34,6 +34,14 @@ return {
       -- big result set.
       vim.g.db_ui_win_position = "right"
       vim.g.db_ui_winwidth = 40
+      -- vim-dadbod-ui registers table helpers (the "List" query template
+      -- shown when drilling into a collection) only under the `mongodb`
+      -- scheme, not `mongodb+srv` -- the scheme every Atlas connection
+      -- string actually uses. Without this, "List" silently resolves to an
+      -- empty template and opens a blank query buffer.
+      vim.g.db_ui_table_helpers = {
+        ["mongodb+srv"] = { List = "{table}.find()" },
+      }
     end,
   },
 }
