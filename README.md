@@ -15,6 +15,7 @@ My personal Neovim setup, built on [LazyVim](https://github.com/LazyVim/LazyVim)
 - **A one-click button bar.** [`clickaholic.nvim`](https://github.com/johnkingkong/clickaholic.nvim) — my own plugin — a configurable, clickable button bar (run a Vim command, a shell command, or Lua) rendered as a single instance in the bufferline, not duplicated per window.
 - **Merge conflicts, mostly auto-resolved.** [`albus-conflictius.nvim`](https://github.com/johnkingkong/albus-conflictius.nvim) — my own plugin — watches the repo for conflicts and pops up a dashboard the moment one appears; its "magic wand" auto-resolves hunks where only one side actually changed, leaving a guided accept-ours/accept-theirs view for the rest.
 - **PR review comments, without the ceremony.** [`the-grapevine.nvim`](https://github.com/JohnKingKong/the-grapevine.nvim) — my own plugin — a read-only, grouped-by-file view of the current branch's open PR's review comments (resolved and unresolved), jump straight to the code a comment refers to.
+- **A visual DB browser.** [`vim-dadbod-ui`](https://github.com/kristijanhusak/vim-dadbod-ui) (on [`vim-dadbod`](https://github.com/tpope/vim-dadbod)) — browse MongoDB collections in a tree, click one to see its documents, write and run raw `mongosh`-shell queries in the same buffer. Requires `mongosh` on PATH; connection comes from the `DBUI_URL`/`DBUI_NAME` environment variables, never committed here.
 - **AI completion.** [`supermaven-nvim`](https://github.com/supermaven-inc/supermaven-nvim).
 - **A patched dashboard.** [`snacks.nvim`](https://github.com/JohnKingKong/snacks.nvim) (a fork — fixes the startup dashboard throwing `Invalid window id` when its window is closed/replaced and something else resizes afterward).
 - **A few UI tweaks:** [gruvbox](https://github.com/ellisonleao/gruvbox.nvim) colorscheme, transparent background, scroll animation disabled.
@@ -47,6 +48,7 @@ Requires Neovim >= 0.9. Lazy.nvim bootstraps and installs every plugin on first 
 | [clickaholic.nvim](https://github.com/johnkingkong/clickaholic.nvim) | Configurable, clickable button bar (single instance, rendered in the bufferline) |
 | [albus-conflictius.nvim](https://github.com/johnkingkong/albus-conflictius.nvim) | Merge-conflict dashboard with an auto-resolve "magic wand" |
 | [the-grapevine.nvim](https://github.com/JohnKingKong/the-grapevine.nvim) | Read-only, grouped-by-file PR review comment viewer |
+| [vim-dadbod-ui](https://github.com/kristijanhusak/vim-dadbod-ui) | Visual database browser (MongoDB) |
 | [conform.nvim](https://github.com/stevearc/conform.nvim) | Format-on-save (Biome for TS/JS/JSON) |
 | [supermaven-nvim](https://github.com/supermaven-inc/supermaven-nvim) | AI completion |
 | [snacks.nvim](https://github.com/JohnKingKong/snacks.nvim) | LazyVim UI toolkit (fork: fixes dashboard crash on window resize after close) |
@@ -89,6 +91,8 @@ Beyond [LazyVim's defaults](https://www.lazyvim.org/keymaps):
 | `<leader>mw` | n | Run the magic wand on the current buffer, if it's a conflicted file (albus-conflictius.nvim) |
 | `<leader>md` | n | Toggle the ours\|result\|theirs diff view on a conflicted file (albus-conflictius.nvim) |
 | `<leader>gv` | n | Show the current branch's PR review comments (the-grapevine.nvim) |
+| `<leader>Du` | n | Toggle the database browser (vim-dadbod-ui) |
+| `<leader>Df` | n | Jump to the open database buffer (vim-dadbod-ui) |
 
 ---
 
