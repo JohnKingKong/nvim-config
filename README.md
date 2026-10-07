@@ -31,6 +31,13 @@ nvim
 
 Requires Neovim >= 0.9. Lazy.nvim bootstraps and installs every plugin on first launch.
 
+A sibling [NvChad](https://nvchad.com) profile lives at `~/.config/nvim-nvchad`,
+fully isolated via `NVIM_APPNAME` (separate config/data/state/cache, zero
+interaction with this one) — run `nvchad` (or `neovide-nvchad` for the GUI)
+to launch it instead of `nvim`. It mirrors most of the plugins below;
+`floo-network.nvim` and `clickaholic.nvim` render through NvChad's
+`tabufline` there instead of `bufferline.nvim`.
+
 ---
 
 ## Plugin list
