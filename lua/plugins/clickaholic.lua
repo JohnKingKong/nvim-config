@@ -7,7 +7,6 @@ return {
   opts = {
     renderer = "lualine",
     buttons = {
-      { label = "Explorer", icon = "🌳", action_type = "cmd", action = "Neotree toggle" },
       {
         label = "run console",
         icon = "🚀",
@@ -35,6 +34,27 @@ return {
         action_type = "cmd",
         action = "botright split | terminal source ~/.zshrc >/dev/null 2>&1; cd /Users/johnkingkong/Evolia/evolia-api && npm run start:dev",
         cwd = "/Users/johnkingkong/Evolia/evolia-api",
+      },
+      {
+        label = "run mobile",
+        icon = "🚀",
+        action_type = "cmd",
+        action = "botright split | terminal source ~/.zshrc >/dev/null 2>&1; cd /Users/johnkingkong/Evolia/voila-mobile && npm run start",
+        cwd = "/Users/johnkingkong/Evolia/voila-mobile",
+      },
+      {
+        label = "run ios",
+        icon = "🚀",
+        action_type = "cmd",
+        action = "botright split | terminal source ~/.zshrc >/dev/null 2>&1; cd /Users/johnkingkong/Evolia/voila-mobile && npm run ios",
+        cwd = "/Users/johnkingkong/Evolia/voila-mobile",
+      },
+      {
+        label = "run android",
+        icon = "🚀",
+        action_type = "cmd",
+        action = "botright split | terminal source ~/.zshrc >/dev/null 2>&1; cd /Users/johnkingkong/Evolia/voila-mobile && npm run android",
+        cwd = "/Users/johnkingkong/Evolia/voila-mobile",
       },
     },
   },
