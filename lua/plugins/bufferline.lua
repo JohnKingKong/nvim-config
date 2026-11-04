@@ -10,13 +10,6 @@ return {
         left = function()
           return require("floo.tabline").custom_area()
         end,
-        -- clickaholic.tabline.custom_area() pads itself out to the full
-        -- (unfiltered) button list's width, so cwd-scoped buttons showing/
-        -- hiding as you switch fireplaces no longer reflows the buffer
-        -- tabs -- see clickaholic/tabline.lua for why that's needed.
-        right = function()
-          return require("clickaholic.tabline").custom_area()
-        end,
       },
     },
   },

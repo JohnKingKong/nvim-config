@@ -5,7 +5,7 @@ return {
     { "<leader>cb", "<cmd>Clickaholic<cr>", desc = "Clickaholic: Manage Buttons" },
   },
   opts = {
-    renderer = "tabline",
+    renderer = "lualine",
     buttons = {
       { label = "Explorer", icon = "🌳", action_type = "cmd", action = "Neotree toggle" },
       {
