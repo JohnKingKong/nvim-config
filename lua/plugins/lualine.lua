@@ -7,6 +7,20 @@
 return {
   "nvim-lualine/lualine.nvim",
   config = function(_, opts)
+    -- LazyVim's lualine.nvim's `extensions = { "neo-tree", ... }` swaps in a
+    -- minimal, neo-tree-specific statusline (no lualine_x, so no
+    -- clickaholic buttons) whenever that window is focused. laststatus=3
+    -- (LazyVim's own default) makes the statusline genuinely global -- one
+    -- shared row -- but lualine still re-points that row's *content* at
+    -- whichever window last took focus, neo-tree included, unless told
+    -- otherwise. ignore_focus is lualine's own mechanism for exactly this:
+    -- focusing a listed filetype doesn't update which window's content the
+    -- global statusline shows, so it keeps showing the real edit window's
+    -- content (buttons included) even while neo-tree's sidebar has focus.
+    opts.options = opts.options or {}
+    opts.options.ignore_focus = opts.options.ignore_focus or {}
+    table.insert(opts.options.ignore_focus, "neo-tree")
+
     local base_x = vim.deepcopy(opts.sections.lualine_x or {})
 
     local function refresh()
